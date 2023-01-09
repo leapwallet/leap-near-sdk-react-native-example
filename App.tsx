@@ -41,15 +41,10 @@ const getDeepLink = (path = '') => {
   return prefix + path
 }
 
-import { LaunchArguments } from "react-native-launch-arguments";
-interface MyExpectedArgs {
-  LeapNearAddress?: string;
-}
 
-
-const onLogin =  async () => {
-    const deepLink = getDeepLink('leap-near-react-native')
-    const url = `http://localhost:3000?redirect_uri=${deepLink}`
+const onWeb3AuthLogin =  async () => {
+    const deepLink = getDeepLink('leap-near-react-native') // your app deeplink
+    const url = `http://localhost:3000?leapRedirectURL=${deepLink}` // your webapp url
     try {
       if (await InAppBrowser.isAvailable()) {
         InAppBrowser.openAuth(url, deepLink, {
@@ -106,11 +101,6 @@ const Section: React.FC<
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  const [injectedJs, setInjectedJs] = useState(`(function() {
-    setTimeout(() => {
-      // window.onReceiveMessage({ method: 'openWeb3Auth', type: 'async' }); 
-    }, 2000)  
-  })();`);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -126,7 +116,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    Linking.addEventListener('url', handleURL);
+    Linking.addEventListener('url', handleURL); // Deeplink callback
   })
 
   return (
@@ -142,11 +132,8 @@ const App = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Login Via Ramper">
-            <Button title='Create Wallet' onPress={() => { console.log('reached') }} />
-          </Section>
           <Section title="Login via Web3Auth">
-            <Button title='Create Wallet' onPress={() => { console.log('reached'); onLogin(); }} />
+            <Button title='Create Wallet' onPress={() => { onWeb3AuthLogin(); }} />
           </Section>
         </View>
       </ScrollView>
