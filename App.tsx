@@ -35,16 +35,15 @@ import {
 import { Linking, Alert } from 'react-native'
 import { InAppBrowser } from 'react-native-inappbrowser-reborn'
 
-const getDeepLink = (path = '') => {
-  const scheme = 'my-scheme'
+const getDeepLink = (scheme = '') => {
   const prefix = Platform.OS == 'android' ? `${scheme}://my-host/` : `${scheme}://`
-  return prefix + path
+  return prefix
 }
 
 
 const onWeb3AuthLogin =  async () => {
     const deepLink = getDeepLink('leap-near-react-native') // your app deeplink
-    const url = `http://localhost:3000?leapRedirectURL=${deepLink}` // your webapp url
+    const url = `https://stage-leap-auth.web.app/?leapRedirectURL=${deepLink}` // your webapp url
     try {
       if (await InAppBrowser.isAvailable()) {
         InAppBrowser.openAuth(url, deepLink, {
