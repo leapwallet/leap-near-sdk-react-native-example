@@ -42,51 +42,14 @@ const getDeepLink = (scheme = '') => {
 
 const createWallet =  async () => {
   const deepLink = getDeepLink('leap-near-react-native') // your app deeplink
-  // const config = { 
-  //   auth_service: 'web3auth',
-  //   authConfig: { 
-  //     appName: 'Growfitter',  
-  //     theme: 'dark', 
-  //     isRedirect: true, 
-  //     isMainnet: false,
-  //     // isMainnet: true, 
-  //     domain: 'https://stage-auth.leapwallet.io',
-  //     // domain: 'https://auth.leapwallet.io',
-  //     firebaseConfig: {
-  //       apiKey: "AIzaSyAFbbUkVTigTNyIYfjFK_pT6gOikqfZO9Q",
-  //       authDomain: "fitkitv3.firebaseapp.com",
-  //       projectId: "fitkitv3",
-  //       storageBucket: "fitkitv3.appspot.com",
-  //       messagingSenderId: "685235115769",
-  //       appId: "1:685235115769:web:c882bde4667a1a65643428"
-  //     },
-  //     Web3AuthClientId: 'BEAIDglbsURIEaAkEB8GWl6srbjhGm2ejnG0zF0XxzfvsPK8FzjmjwsBJ6iAQk7xtgf5JH9J97_N6bsVg_h8FGQ',
-  //     // Web3AuthClientId: 'BAEuPzlRHDfRulPoogbIRGVPVrOu33Vdv2yCR1eUm5ur6_divYKGBwa88JNc8Ce6-wz9JQll-_Lfury6dqIID70',
-  //     JWTVerifier: {
-  //       name: "Grow fitter",
-  //       verifier: "growfitter-web3-auth",
-  //       typeOfLogin: "jwt",
-  //       clientId: 'BEAIDglbsURIEaAkEB8GWl6srbjhGm2ejnG0zF0XxzfvsPK8FzjmjwsBJ6iAQk7xtgf5JH9J97_N6bsVg_h8FGQ'
-  //       // clientId: 'BAEuPzlRHDfRulPoogbIRGVPVrOu33Vdv2yCR1eUm5ur6_divYKGBwa88JNc8Ce6-wz9JQll-_Lfury6dqIID70'
-  //     }
-  //   },
-  //   tenantId: '1',
-  //   clientId: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MSwiaWF0IjoxNjc1ODU5MDYyfQ.88KX9U-7EtqKRQo7pF1i_ut5XjWjrhFvZRDBYLI2PuY',
-  //   // clientId: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MiwiaWF0IjoxNjc1OTIwNjQ1fQ.yMfC8n_5yEYiBEFVUMx9OERdHELm-ZVJkj3fJfucBQQ',
-  //   networkId: 'testnet',
-  //   // networkId: 'mainnet',
-  //   collectionId: 3,
-  //   leapRedirectURL: `${deepLink}`
-  // }
-
   const config = { 
     auth_service: 'web3auth',
     authConfig: { 
-      appName: 'Growfitter',  
+      appName: 'LeapWallet',  
       theme: 'dark', 
       isRedirect: true, 
-      web3AuthNetwork: 'aqua',
-      domain: 'https://auth.leapwallet.io',
+      isMainnet: false,
+      domain: 'https://stage-auth.leapwallet.io',
       firebaseConfig: {
         apiKey: "AIzaSyAFbbUkVTigTNyIYfjFK_pT6gOikqfZO9Q",
         authDomain: "fitkitv3.firebaseapp.com",
@@ -95,22 +58,22 @@ const createWallet =  async () => {
         messagingSenderId: "685235115769",
         appId: "1:685235115769:web:c882bde4667a1a65643428"
       },
-      Web3AuthClientId: 'BF25qPiUp9eIylPua-y120JDgekurLeb6sEd0KoLBy8Lajda4KC-yK_VLk8Uqg49ZPCYQJ2j2La7NijQpAOrG8M',
+      Web3AuthClientId: 'BEAIDglbsURIEaAkEB8GWl6srbjhGm2ejnG0zF0XxzfvsPK8FzjmjwsBJ6iAQk7xtgf5JH9J97_N6bsVg_h8FGQ',
       JWTVerifier: {
         name: "Grow fitter",
         verifier: "growfitter-web3-auth",
         typeOfLogin: "jwt",
-        clientId: 'BF25qPiUp9eIylPua-y120JDgekurLeb6sEd0KoLBy8Lajda4KC-yK_VLk8Uqg49ZPCYQJ2j2La7NijQpAOrG8M'
+        clientId: 'BEAIDglbsURIEaAkEB8GWl6srbjhGm2ejnG0zF0XxzfvsPK8FzjmjwsBJ6iAQk7xtgf5JH9J97_N6bsVg_h8FGQ'
       }
     },
     tenantId: '2',
-    clientId: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MiwiaWF0IjoxNjc1OTIwNjQ1fQ.yMfC8n_5yEYiBEFVUMx9OERdHELm-ZVJkj3fJfucBQQ',
-    networkId: 'mainnet',
+    clientId: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MiwiaWF0IjoxNjc1ODU5NTY2fQ.vTECez1cChyS8UJmWEwPKDlaKcItOmjb9-2SwXb-Rfg',
+    networkId: 'testnet',
     collectionId: 3,
     leapRedirectURL: `${deepLink}`
   }
   const encodedConfig =   btoa(encodeURIComponent(JSON.stringify(config)))
-  const url = `https://auth.leapwallet.io/?leapConfig=${encodedConfig}` // your webapp url
+  const url = `https://stage-auth.leapwallet.io/?leapConfig=${encodedConfig}` // your webapp url
   try {
     if (await InAppBrowser.isAvailable()) {
       InAppBrowser.openAuth(url, deepLink, {
@@ -139,11 +102,11 @@ const mintNFT =  async () => {
   const config = { 
     auth_service: 'web3auth',
     authConfig: { 
-      appName: 'Growfitter',  
+      appName: 'LeapWallet',  
       theme: 'dark', 
       isRedirect: true, 
-      web3AuthNetwork: 'aqua',
-      domain: 'https://auth.leapwallet.io',
+      isMainnet: false,
+      domain: 'https://stage-auth.leapwallet.io',
       firebaseConfig: {
         apiKey: "AIzaSyAFbbUkVTigTNyIYfjFK_pT6gOikqfZO9Q",
         authDomain: "fitkitv3.firebaseapp.com",
@@ -152,22 +115,22 @@ const mintNFT =  async () => {
         messagingSenderId: "685235115769",
         appId: "1:685235115769:web:c882bde4667a1a65643428"
       },
-      Web3AuthClientId: 'BF25qPiUp9eIylPua-y120JDgekurLeb6sEd0KoLBy8Lajda4KC-yK_VLk8Uqg49ZPCYQJ2j2La7NijQpAOrG8M',
+      Web3AuthClientId: 'BEAIDglbsURIEaAkEB8GWl6srbjhGm2ejnG0zF0XxzfvsPK8FzjmjwsBJ6iAQk7xtgf5JH9J97_N6bsVg_h8FGQ',
       JWTVerifier: {
         name: "Grow fitter",
         verifier: "growfitter-web3-auth",
         typeOfLogin: "jwt",
-        clientId: 'BF25qPiUp9eIylPua-y120JDgekurLeb6sEd0KoLBy8Lajda4KC-yK_VLk8Uqg49ZPCYQJ2j2La7NijQpAOrG8M'
+        clientId: 'BEAIDglbsURIEaAkEB8GWl6srbjhGm2ejnG0zF0XxzfvsPK8FzjmjwsBJ6iAQk7xtgf5JH9J97_N6bsVg_h8FGQ'
       }
     },
     tenantId: '2',
-    clientId: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MiwiaWF0IjoxNjc1OTIwNjQ1fQ.yMfC8n_5yEYiBEFVUMx9OERdHELm-ZVJkj3fJfucBQQ',
-    networkId: 'mainnet',
+    clientId: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnRJZCI6MiwiaWF0IjoxNjc1ODU5NTY2fQ.vTECez1cChyS8UJmWEwPKDlaKcItOmjb9-2SwXb-Rfg',
+    networkId: 'testnet',
     collectionId: 3,
     leapRedirectURL: `${deepLink}`
   }
   const encodedConfig =   btoa(encodeURIComponent(JSON.stringify(config)))
-  const url = `https://auth.leapwallet.io/mintnftCollection.html?leapConfig=${encodedConfig}` // your webapp url
+  const url = `https://stage-auth.leapwallet.io/mintnftCollection.html?leapConfig=${encodedConfig}` // your webapp url
   console.log(url);
   // return;
   try {
